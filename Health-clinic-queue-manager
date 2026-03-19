@@ -8,7 +8,7 @@ Requirements:
   - Include at least one method (e.g., display_info or get_wait_time)
 - Use a Queue (FIFO) to manage patients waiting
 - Use Python datetime module to timestamp patient registration
-- No raw dictionaries for main storage
+- No raw dictionaries for main storage terms
 
 Features:
 1. Register a patient (via HTML form)
