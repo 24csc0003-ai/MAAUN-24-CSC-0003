@@ -2,7 +2,7 @@
 A Health Clinic Queue Manager
 
 Requirements:
-- Use Python Flask
+- Use Python Flask Colour
 - Use Object-Oriented Programming:
   - Create a Patient class with attributes: name, age, time_registered
   - Include at least one method (e.g., display_info or get_wait_time)
