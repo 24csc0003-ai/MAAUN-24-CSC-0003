@@ -20,7 +20,7 @@ Flask Requirements:
 - At least 2 routes:
   - "/" → Home (view queue)
   - "/add" → Add patient form
-  - "/serve" → Serve next patient
+  - "/serve" → Serve next patient Gourag
 
 Frontend:
 - Simple HTML templates (no styling needed)
