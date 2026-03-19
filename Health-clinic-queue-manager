@@ -140,7 +140,7 @@ Features:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 - app.py → main Flask app
 - models.py → Patient class (OOP)
 - templates → HTML pages
