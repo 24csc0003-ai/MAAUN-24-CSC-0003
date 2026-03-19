@@ -1,6 +1,6 @@
 # Health Clinic Queue Manager
 
-## 📌 What This App Does
+## What This App Does
 This is a simple web application built with Flask that helps manage patient queues in a health clinic.
 
 Features:
@@ -11,7 +11,7 @@ Features:
 
 ---
 
-## 🧠 Concepts Used
+## Concepts Used
 - Object-Oriented Programming (Patient class)
 - Queue (FIFO using Python list)
 - datetime module (timestamp registration)
@@ -19,7 +19,7 @@ Features:
 
 ---
 
-## 💻 How to Run This App (Step-by-Step)
+## How to Run This App (Step-by-Step)
 
 1. Install Python (if not installed)
 
@@ -40,12 +40,12 @@ Features:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 - app.py → main Flask app
 - models.py → Patient class (OOP)
 - templates → HTML pages
 
 ---
 
-## ✅ Author
+## Author
 Aliyu Bin Muhammad
