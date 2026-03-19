@@ -111,7 +111,7 @@ Features:
 
 ---
 
-## 🧠 Concepts Used
+## Concepts Used
 - Object-Oriented Programming (Patient class)
 - Queue (FIFO using Python list)
 - datetime module (timestamp registration)
