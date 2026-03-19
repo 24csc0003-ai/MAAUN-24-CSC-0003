@@ -100,7 +100,7 @@ class Patient:
         Flask
 # Health Clinic Queue Manager
 
-## 📌 What This App Does
+## What This App Does
 This is a simple web application built with Flask that helps manage patient queues in a health clinic.
 
 Features:
