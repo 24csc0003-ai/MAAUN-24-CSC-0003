@@ -1,5 +1,103 @@
 # MAAUN-24-CSC-0003
 A Health Clinic Queue Manager
+Create a complete Flask web application called "Health Clinic Queue Manager".
+
+Requirements:
+- Use Python Flask
+- Use Object-Oriented Programming:
+  - Create a Patient class with attributes: name, age, time_registered
+  - Include at least one method (e.g., display_info or get_wait_time)
+- Use a Queue (FIFO) to manage patients waiting
+- Use Python datetime module to timestamp patient registration
+- No raw dictionaries for main storage
+
+Features:
+1. Register a patient (via HTML form)
+2. View waiting list (FIFO order)
+3. See total number of patients served today
+4. Serve next patient (remove from queue)
+
+Flask Requirements:
+- At least 2 routes:
+  - "/" → Home (view queue)
+  - "/add" → Add patient form
+  - "/serve" → Serve next patient
+
+Frontend:
+- Simple HTML templates (no styling needed)
+
+Project Structure:
+- app.py
+- models.py
+- templates/
+  - index.html
+  - add_patient.html
+
+README.md:
+- Explain what the app does
+- Step-by-step guide to run locally (for beginners)
+
+Also include:
+- requirements.txt
+- Comments in code explaining logic
+
+Ensure code runs without errors.
+health-clinic-queue/
+│
+├── app.py
+├── models.py
+├── requirements.txt
+├── README.md
+│
+└── templates/
+    ├── index.html
+    └── add_patient.html
+    from flask import Flask, render_template, request, redirect
+from models import Patient
+
+app = Flask(__name__)
+
+# Queue (FIFO)
+queue = []
+served_count = 0
+
+@app.route('/')
+def index():
+    return render_template("index.html", queue=queue, count=served_count)
+
+@app.route('/add', methods=['GET', 'POST'])
+def add_patient():
+    if request.method == 'POST':
+        name = request.form['name']
+        age = request.form['age']
+
+        patient = Patient(name, age)
+        queue.append(patient)
+
+        return redirect('/')
+    return render_template("add_patient.html")
+
+@app.route('/serve')
+def serve_patient():
+    global served_count
+    if queue:
+        queue.pop(0)
+        served_count += 1
+    return redirect('/')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+    from datetime import datetime
+
+class Patient:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.time_registered = datetime.now()
+
+    def display_info(self):
+        return f"{self.name} ({self.age}) - {self.time_registered.strftime('%H:%M:%S')}"
+        Flask
 # Health Clinic Queue Manager
 
 ## 📌 What This App Does
@@ -51,3 +149,41 @@ Features:
 
 ## ✅ Author
 Aliyu Bin Muhammad
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clinic Queue</title>
+</head>
+<body>
+    <h1>Health Clinic Queue</h1>
+
+    <a href="/add">Add Patient</a>
+    <a href="/serve">Serve Next Patient</a>
+
+    <h2>Waiting List</h2>
+    <ul>
+        {% for patient in queue %}
+            <li>{{ patient.display_info() }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Total Patients Served Today: {{ count }}</h3>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Patient</title>
+</head>
+<body>
+    <h1>Register Patient</h1>
+
+    <form method="POST">
+        Name: <input type="text" name="name" required><br><br>
+        Age: <input type="number" name="age" required><br><br>
+        <button type="submit">Add Patient</button>
+    </form>
+
+    <a href="/">Back</a>
+</body>
+</html>
