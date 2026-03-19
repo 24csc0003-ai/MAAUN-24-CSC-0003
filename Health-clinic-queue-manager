@@ -41,6 +41,7 @@ Also include:
 - Comments in code explaining logic
 
 Ensure code runs without errors.
+
 health-clinic-queue/
 │
 ├── app.py
